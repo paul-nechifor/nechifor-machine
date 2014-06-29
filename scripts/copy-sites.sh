@@ -4,7 +4,7 @@ sites_dir=`dirname "$0"`/../sites
 pro=/home/p/pro
 
 sites=(
-  nechifor-site nechifor-site
+  nechifor-index nechifor-index
 )
 
 excludes=(
