@@ -24,6 +24,9 @@ Vagrant.configure("2") do |config|
         override.vm.box_url = 'https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box'
         provider.client_id = File.read('private/client_id').strip
         provider.api_key = File.read('private/api_key').strip
+        provider.size = '1GB'
+        provider.image = 'Ubuntu 12.04.4 x64'
+        provider.region = 'Amsterdam 2'
       end
     end
   end
