@@ -27,16 +27,24 @@ def install_nechifor_ee():
 
     content = """
     server {
+        server_name old.nechifor.net;
+        location / {
+            proxy_pass http://localhost:8080;
+        }
+    }
+    """
+    install_nginx_site('old.nechifor.net', content)
+
+def install_nechifor_node():
+    content = """
+    server {
         server_name nechifor.net;
-        location ~ $/?$ {
+        location / {
             index index.html;
             root /vagrant/sites/nechifor-index/build/html/;
         }
-        location ~ ^/s/(.*)$ {
+        location /s/ {
             root /vagrant/sites/nechifor-index/build/;
-        }
-        location @missing {
-            proxy_pass http://localhost:8080;
         }
     }
     """
@@ -46,6 +54,7 @@ def main():
     os.system('/opt/glassfish3/glassfish/bin/asadmin start-domain >/dev/null')
     remove_nginx_default()
     install_nechifor_ee()
+    install_nechifor_node()
     os.system('service nginx restart')
 
 if __name__ == '__main__':
