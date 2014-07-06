@@ -4,15 +4,18 @@ sites_dir=`dirname "$0"`/../sites
 pro=/home/p/pro
 
 sites=(
-  nechifor-index nechifor-index
+  nechifor-site nechifor-site
 )
 
 excludes=(
   --exclude .git
+  --exclude .idea
   --exclude '*~'
   --exclude private
   --exclude screenshot.png
   --exclude readme.md
+  --exclude browserify
+  --exclude web-build-tools
 )
 
 mkdir -p $sites_dir 2>/dev/null

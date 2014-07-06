@@ -40,11 +40,10 @@ def install_nechifor_node():
     server {
         server_name nechifor.net;
         location / {
-            index index.html;
-            root /vagrant/sites/nechifor-index/build/html/;
+            proxy_pass http://localhost:3000;
         }
         location /s/ {
-            root /vagrant/sites/nechifor-index/build/;
+            root /vagrant/sites/nechifor-site/build/;
         }
     }
     """

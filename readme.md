@@ -1,6 +1,6 @@
 # Nechifor Machine
 
-A Vagrant configuration for my [nechifor.net](http://nechifor.net) host.
+A Vagrant configuration for my [nechifor.net](http://nechifor.net) domain.
 
 ## Running it
 
@@ -30,6 +30,16 @@ The DigitalOcean keys must be on a line in `private/api_key` and
 
     vagrant plugin install vagrant-digitalocean
     vagrant up nechifor-remote --provider=digital_ocean
+
+### Not automated yet:
+
+In `/etc/nginx/nginx.conf` set this:
+
+    http {
+        ...
+        server_names_hash_bucket_size 64;
+        ...
+    }
 
 ## License
 

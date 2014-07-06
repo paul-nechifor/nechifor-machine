@@ -10,6 +10,7 @@ packages=(
 main() {
   install_packages
   install_glassfish
+  install_node
 }
 
 install_packages() {
@@ -26,6 +27,13 @@ install_glassfish() {
   unzip -d /opt glassfish-*.zip
   rm glassfish-*.zip
   /opt/glassfish3/glassfish/bin/asadmin start-domain
+}
+
+install_node() {
+  apt-get install -y python-software-properties
+  add-apt-repository -y ppa:chris-lea/node.js
+  apt-get update
+  apt-get install -y nodejs
 }
 
 main
