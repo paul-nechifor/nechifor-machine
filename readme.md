@@ -25,8 +25,7 @@ See it at: [10.10.10.10](http://10.10.10.10).
 
 ## Deploying
 
-The DigitalOcean keys must be on a line in `private/api_key` and
-`private/client_id`. After that:
+The DigitalOcean token must be on a line in `private/token`. After that:
 
     vagrant plugin install vagrant-digitalocean
     vagrant up nechifor-remote --provider=digital_ocean
