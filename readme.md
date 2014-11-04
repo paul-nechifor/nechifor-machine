@@ -13,13 +13,9 @@ are hardcoded to `/home/p/pro`.
 
     ./scripts/copy-sites.sh
 
-Go in the machine:
+Install the sites from inside the machine:
 
-    vagrant ssh nechifor-local
-
-From inside the machine:
-
-    sudo /vagrant/scripts/install-sites.py
+    vagrant ssh nechifor-local -- -t 'sudo /vagrant/scripts/install-sites.py'
 
 See it at: [10.10.10.10](http://10.10.10.10).
 
