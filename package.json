@@ -1,0 +1,19 @@
+{
+  "name": "nechifor-machine",
+  "version": "0.0.0",
+  "author": "Paul Nechifor <paul@nechifor.net> (http://nechifor.net/)",
+  "scripts": {
+    "make-all": "npm install && gulp make-all",
+    "up": "npm run make-all && vagrant up --provision local"
+  },
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "git-require": "^0.2.0",
+    "gulp": "^3.8.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paul-nechifor/nechifor-machine"
+  },
+  "license": "MIT"
+}

@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  vmname = "nechifor-local"
+  vmname = "local"
   config.vm.define vmname.to_sym do |machine|
     machine.vm.box = "hashicorp/precise64"
     machine.vm.host_name = vmname
