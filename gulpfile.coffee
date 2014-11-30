@@ -34,7 +34,7 @@ run = (cmd, dir, cb) ->
     return cb 'err-' + code unless code is 0
     cb()
 
-gulp.task 'make-all', (cb) ->
+gulp.task 'make', (cb) ->
   async.series [
     getMainSite
     buildAll

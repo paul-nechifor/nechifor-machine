@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "async": "^0.9.0",
-    "coffee-script": "^1.8.0"
+    "coffee-script": "^1.8.0",
+    "deploy-tools": "^0.1.0"
   }
 }
