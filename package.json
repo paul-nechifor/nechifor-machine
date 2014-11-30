@@ -5,7 +5,7 @@
   "scripts": {
     "make": "npm install && gulp make",
     "up": "npm run make && vagrant up --provision local && npm run update",
-    "up-remote": "vagrant up remote && vagrant ssh remote -- -t 'sudo node /opt/synced/install/install.js'",
+    "up-remote": "vagrant plugin install vagrant-digitalocean && vagrant up remote --provider=digital_ocean && vagrant ssh remote -- -t 'sudo node /opt/synced/install/install.js'",
     "update": "vagrant ssh local -- -t 'sudo node /opt/synced/install/install.js'",
     "update-remote": "vagrant ssh remote -- -t 'sudo node /opt/synced/install/install.js'",
     "deploy-remote": "vagrant rsync remote && npm run update-remote"
