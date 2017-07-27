@@ -1,24 +1,23 @@
 #!/bin/bash
 
 packages=(
-  nginx
+    docker.io
+    nginx
 )
 
 main() {
-  install_packages
-  install_node
+    install_packages
+
+    setup_docker
 }
 
 install_packages() {
-  apt-get update
-  apt-get install -y ${packages[@]}
+    apt-get update
+    apt-get install -y "${packages[@]}"
 }
 
-install_node() {
-  apt-get install -y python-software-properties
-  add-apt-repository -y ppa:chris-lea/node.js
-  apt-get update
-  apt-get install -y nodejs
+setup_docker() {
+    gpasswd -a "$(getent passwd 1000 | cut -d: -f1)" docker
 }
 
 main

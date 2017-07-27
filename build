@@ -1,0 +1,2 @@
+docker load < nechifor-web-1.tar.xz
+docker run --name nechifor-web --restart on-failure -p 8080:80 -d nechifor-web:1 /usr/bin/supervisord -n -c /etc/supervisord.conf
