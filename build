@@ -1,19 +1,4 @@
 sudo cp /opt/nechifor-machine/nginx.conf /etc/nginx/nginx.conf
 docker load < /opt/nechifor-machine/nechifor-web-1.tar.xz
 docker run --name nechifor-web --restart always -p 8080:80 -d nechifor-web:1 /usr/bin/supervisord -n -c /etc/supervisord.conf
-
-args=(
-    --detach
-    --hostname gitlab.nechifor.net
-    --publish 8443:443
-    --publish 8081:80
-    --publish 2222:22
-    --name gitlab
-    --restart always
-    --volume /opt/gitlab:/etc/gitlab
-    --volume /opt/gitlab/logs:/var/log/gitlab
-    --volume /opt/gitlab/data:/var/opt/gitlab
-    gitlab/gitlab-ce:latest
-)
-docker run "${args[@]}"
 sudo service nginx restart
