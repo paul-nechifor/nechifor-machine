@@ -5,14 +5,13 @@ packages=(
     nginx
 )
 
-gitlab_image="gitlab/gitlab-ce:9.4.3-ce.0"
-
 main() {
     install_packages
 
     setup_docker
-    download_packages
+    get_packages
     start_containers
+    configure_nginx
 }
 
 install_packages() {
@@ -25,25 +24,27 @@ setup_docker() {
     gpasswd -a "$(getent passwd 1000 | cut -d: -f1)" docker
 }
 
-download_packages() {
-    docker pull "$gitlab_image"
+get_packages() {
+    docker load < /opt/nechifor-machine/nechifor-web-1.tar.xz
 }
 
 start_containers() {
-    local vars=(
-        --detach
-        --hostname gitlab.nechifor.net
-        --publish 8081:80
-        # --publish 2222:22
-        --name gitlab
+    local args=(
+        run
+        --name nechifor-web
         --restart always
-        --volume /opt/gitlab/config:/etc/gitlab
-        --volume /opt/gitlab/logs:/var/log/gitlab
-        --volume /opt/gitlab/data:/var/opt/gitlab
-        "$gitlab_image"
+        -p 8080:80
+        -d nechifor-web:1
+        /usr/bin/supervisord
+        -n
+        -c /etc/supervisord.conf
     )
+    docker "${args[@]}"
+}
 
-    docker run "${vars[@]}"
+configure_nginx() {
+    cp /opt/nechifor-machine/nginx.conf /etc/nginx/nginx.conf
+    service nginx restart
 }
 
 main

@@ -2,11 +2,22 @@
 
 A Vagrant configuration for my [nechifor.net](http://nechifor.net) domain.
 
+## Usage
+
+Get the image created by building [nechifor-web][nechifor-web].
+
+    cp <some place>/nechifor-web-1.tar.xz synced/nechifor-web-1.tar.xz
+
+Start the server:
+
+    vagrant up
+
 ## TODO
 
-It clearly cannot run on 1 GiB. I should either elimitate GitLab or make it 2
-GiB.
+- Use cgit instead of GitLab.
 
 ## License
 
 ISC
+
+[nechifor-web]: https://github.com/paul-nechifor/nechifor-web
