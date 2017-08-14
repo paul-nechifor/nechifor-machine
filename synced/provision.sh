@@ -1,7 +1,11 @@
 #!/bin/bash
 
 packages=(
+    fcgiwrap
+    git
+    cgit
     docker.io
+    highlight
     nginx
 )
 
@@ -11,6 +15,7 @@ main() {
     setup_docker
     get_packages
     start_containers
+    configure_git
     configure_nginx
 }
 
@@ -40,6 +45,11 @@ start_containers() {
         -c /etc/supervisord.conf
     )
     docker "${args[@]}"
+}
+
+configure_git() {
+    mkdir -p /git
+    chown www-data:www-data /git
 }
 
 configure_nginx() {
