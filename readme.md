@@ -1,3 +1,7 @@
+# This repository has been moved to [gitlab.com/paul-nechifor/nechifor-machine](http://gitlab.com/paul-nechifor/nechifor-machine).
+
+Old readme:
+
 # Nechifor Machine
 
 A Vagrant configuration for my [nechifor.net](http://nechifor.net) domain.
